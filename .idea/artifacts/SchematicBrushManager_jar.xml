@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SchematicBrushManager:jar">
+    <output-path>A:/Programme/mcss/servers/1.13.2/plugins</output-path>
+    <root id="archive" name="SchematicBrushManager.jar">
+      <element id="module-output" name="SchematicBrushManager" />
+    </root>
+  </artifact>
+</component>

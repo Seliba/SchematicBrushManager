@@ -1,0 +1,11 @@
+name: SBManager
+main: net.seliba.sbmanager.SBManager
+version: 1.0
+api-version: 1.13
+author: Seliba
+#depend: [FastAsyncWorldEdit]
+loadbefore: [FastAsyncWorldEdit]
+
+commands:
+  sm:
+  bm:

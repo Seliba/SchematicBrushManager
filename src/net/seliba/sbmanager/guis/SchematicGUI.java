@@ -1,0 +1,39 @@
+package net.seliba.sbmanager.guis;
+
+/*
+SchematicBrushManager created by Seliba
+*/
+
+import net.seliba.sbmanager.utils.ItemBuilder;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+
+import java.io.File;
+
+public class SchematicGUI {
+
+    private static final int INVENTORY_SIZE = 6 * 9;
+    private static final String[] LORE = new String[]{"§6Verwende das Schematic mit Linksklick", "§6Verwalte das Schematic mit Rechtsklick"};
+
+    public static void open(Player player) {
+        Inventory inventory = Bukkit.createInventory(null, INVENTORY_SIZE, "§aSchematics");
+
+        String uuid = player.getUniqueId().toString();
+        File playerDirectory = new File("plugins/FastAsyncWorldEdit/schematics/" + uuid + "/");
+        File[] playerSchematics = playerDirectory.listFiles();
+
+        if(playerSchematics.length > INVENTORY_SIZE) return;
+
+        for (int i = 0; i < playerSchematics.length; i++) {
+            File schematicFile = playerSchematics[i];
+            if(schematicFile.getName().endsWith(".schem")) {
+                inventory.addItem(new ItemBuilder(Material.PAPER).setName("§a" + schematicFile.getName().replaceAll(".schem", "")).setLore(LORE).build());
+            }
+        }
+
+        player.openInventory(inventory);
+    }
+
+}
