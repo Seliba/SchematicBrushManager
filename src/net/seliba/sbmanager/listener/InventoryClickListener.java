@@ -91,6 +91,8 @@ public class InventoryClickListener implements Listener {
                 player.closeInventory();
                 player.sendMessage("§aDu hast §6" + receiver.getName() + " §aerfolgreich das Schematic gesendet!");
             }
+        } else if(event.getClickedInventory().getName().equals("§aSchematics §7| §aErstellung")) {
+
         }
     }
 
