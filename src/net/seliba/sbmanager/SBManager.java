@@ -8,6 +8,7 @@ import net.seliba.sbmanager.commands.BManagerCommand;
 import net.seliba.sbmanager.commands.SManagerCommand;
 import net.seliba.sbmanager.files.FileLoader;
 import net.seliba.sbmanager.listener.InventoryClickListener;
+import net.seliba.sbmanager.listener.PlayerCommandPreProcessListener;
 import net.seliba.sbmanager.listener.ServerSwitchListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -39,6 +40,7 @@ public class SBManager extends JavaPlugin {
     private void registerEvents() {
         Bukkit.getServer().getPluginManager().registerEvents(new ServerSwitchListener(fileLoader), this);
         Bukkit.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
+        Bukkit.getServer().getPluginManager().registerEvents(new PlayerCommandPreProcessListener(), this);
     }
 
 }

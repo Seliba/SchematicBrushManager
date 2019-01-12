@@ -1,4 +1,4 @@
-package me.mylogo.divineitems.items;
+package net.seliba.sbmanager.nbt;
 
 /**
  * Created by Dennis Heckmann on 24.08.17

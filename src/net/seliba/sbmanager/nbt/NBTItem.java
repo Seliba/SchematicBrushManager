@@ -1,4 +1,4 @@
-package me.mylogo.divineitems.items;
+package net.seliba.sbmanager.nbt;
 
 import org.bukkit.inventory.ItemStack;
 

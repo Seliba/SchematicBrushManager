@@ -31,9 +31,7 @@ public class SendGUI {
     }
 
     private static int getInventorySize() {
-        int inventorySize = Bukkit.getOnlinePlayers().size() / 9;
-        if(Bukkit.getOnlinePlayers().size() % 9 > 0) inventorySize += 9;
-        return inventorySize;
+        return 9 * 6;
     }
 
 }
