@@ -10,10 +10,10 @@ import org.bukkit.inventory.Inventory;
 
 public class BrushGUI {
 
-    private static int INVENTORY_SIZE = 6 * 9;
+  private static int INVENTORY_SIZE = 6 * 9;
 
-    public static void open(Player player) {
-        Inventory inventory = Bukkit.createInventory(null, INVENTORY_SIZE, "");
-    }
+  public static void open(Player player) {
+    Inventory inventory = Bukkit.createInventory(null, INVENTORY_SIZE, "");
+  }
 
 }
