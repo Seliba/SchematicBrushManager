@@ -21,7 +21,7 @@ public class SBManager extends JavaPlugin {
 
   @Override
   public void onEnable() {
-    System.out.println("[SBManager] Gestartet!");
+    System.out.println("[SchematicBrushManager] Gestartet!");
 
     fileLoader = new FileLoader();
 
@@ -31,7 +31,7 @@ public class SBManager extends JavaPlugin {
 
   @Override
   public void onDisable() {
-    System.out.println("[SBManager] Gestoppt!");
+    System.out.println("[SchematicBrushManager] Gestoppt!");
   }
 
   private void registerCommands() {
