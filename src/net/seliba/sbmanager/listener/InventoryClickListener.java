@@ -12,8 +12,8 @@ import net.md_5.bungee.api.chat.TextComponent;
 import net.seliba.sbmanager.guis.ConfirmationGUI;
 import net.seliba.sbmanager.guis.SchematicManagerGUI;
 import net.seliba.sbmanager.guis.SendGUI;
-import net.seliba.sbmanager.utils.AnswerManager;
-import net.seliba.sbmanager.utils.AnswerManager.AnswerType;
+import net.seliba.sbmanager.schematics.AnswerManager;
+import net.seliba.sbmanager.schematics.AnswerManager.AnswerType;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -110,8 +110,10 @@ public class InventoryClickListener implements Listener {
         if (event.getCurrentItem().getType() == Material.PAPER) {
           player.closeInventory();
           AnswerManager.addRequest(player, AnswerType.CREATION_WEB_WEBSITE);
+          player.sendMessage("§aBitte gebe die URL zu der Webseite ein!");
         } else if (event.getCurrentItem().getType() == Material.WOODEN_AXE) {
           AnswerManager.addRequest(player, AnswerType.CREATION_CUSTOM_NAME);
+          player.sendMessage("§aBitte gebe den Namen des Schematics ein!");
         }
       }
     }
