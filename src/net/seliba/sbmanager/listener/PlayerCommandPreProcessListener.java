@@ -19,7 +19,7 @@ public class PlayerCommandPreProcessListener implements Listener {
       if (itemInHand != null) {
         NBTItem nbt = new NBTItem(itemInHand);
         nbt.setString("command", event.getMessage());
-        itemInHand = nbt.getItem();
+        nbt.getItem();
       }
     }
   }
