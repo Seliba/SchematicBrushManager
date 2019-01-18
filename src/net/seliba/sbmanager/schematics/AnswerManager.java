@@ -1,4 +1,4 @@
-package net.seliba.sbmanager.utils;
+package net.seliba.sbmanager.schematics;
 
 /*
 SchematicBrushManager created by Seliba

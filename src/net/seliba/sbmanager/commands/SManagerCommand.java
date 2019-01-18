@@ -4,6 +4,7 @@ package net.seliba.sbmanager.commands;
 SchematicBrushManager created by Seliba
 */
 
+import net.seliba.sbmanager.guis.SchematicCreateGUI;
 import net.seliba.sbmanager.guis.SchematicGUI;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
@@ -28,7 +29,7 @@ public class SManagerCommand implements CommandExecutor {
                     return true;
                 }
                 if(args[0].equalsIgnoreCase("create")) {
-
+                    SchematicCreateGUI.open(player);
                     return true;
                 }
                 File schematicFile = new File("../SBManager/schematics/" + args[1] + "/" + args[2]);
