@@ -4,18 +4,18 @@ package net.seliba.sbmanager.guis;
 SchematicBrushManager created by Seliba
 */
 
+import java.io.File;
 import net.seliba.sbmanager.utils.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
-import java.io.File;
-
 public class SchematicGUI {
 
     private static final int INVENTORY_SIZE = 6 * 9;
-    private static final String[] LORE = new String[]{"§6Verwende das Schematic mit Linksklick", "§6Verwalte das Schematic mit Rechtsklick"};
+    private static final String[] LORE = new String[]{"§6Verwende das Schematic mit Linksklick",
+        "§6Verwalte das Schematic mit Rechtsklick"};
 
     public static void open(Player player) {
         Inventory inventory = Bukkit.createInventory(null, INVENTORY_SIZE, "§aSchematics");
