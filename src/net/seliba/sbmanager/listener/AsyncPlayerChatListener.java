@@ -12,12 +12,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.event.player.PlayerChatEvent;
 
 public class AsyncPlayerChatListener implements Listener {
 
   @EventHandler
-  public void onChat(PlayerChatEvent event) {
+  public void onChat(AsyncPlayerChatEvent event) {
     Player player = event.getPlayer();
 
     if(!AnswerManager.hasRequest(player)) {

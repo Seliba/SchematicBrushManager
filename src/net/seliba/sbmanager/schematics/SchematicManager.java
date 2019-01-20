@@ -12,6 +12,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import net.seliba.sbmanager.SBManager;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class SchematicManager {
@@ -31,8 +33,11 @@ public class SchematicManager {
     if (!SchematicDataManager.hasSchematicName(player)) {
       return;
     }
-    player.performCommand("/copy");
-    player.performCommand("schem save " + SchematicDataManager.getSchematicName(player));
+    Bukkit.getScheduler().runTaskAsynchronously(SBManager.getProvidingPlugin(SBManager.class),
+        () -> {
+          player.performCommand("/copy");
+          player.performCommand("schem save " + SchematicDataManager.getSchematicName(player));
+        });
     SchematicDataManager.removeSchematicName(player);
   }
 

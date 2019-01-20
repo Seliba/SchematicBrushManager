@@ -112,6 +112,7 @@ public class InventoryClickListener implements Listener {
           AnswerManager.addRequest(player, AnswerType.CREATION_WEB_WEBSITE);
           player.sendMessage("§aBitte gebe die URL zu der Webseite ein!");
         } else if (event.getCurrentItem().getType() == Material.WOODEN_AXE) {
+          player.closeInventory();
           AnswerManager.addRequest(player, AnswerType.CREATION_CUSTOM_NAME);
           player.sendMessage("§aBitte gebe den Namen des Schematics ein!");
         }
