@@ -6,17 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e4909bc-4c28-4e9b-bc72-9b769f2ed0e6" name="Default Changelist" comment="">
+    <list default="true" id="5e4909bc-4c28-4e9b-bc72-9b769f2ed0e6" name="Default Changelist" comment="Cha">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/SBManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/SBManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/commands/SManagerCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/commands/SManagerCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/guis/BrushGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/guis/BrushGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/guis/ConfirmationGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/guis/ConfirmationGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/guis/SchematicGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/guis/SchematicGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/listener/InventoryClickListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/listener/InventoryClickListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/listener/PlayerCommandPreProcessListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchematicBrushManager/net/seliba/sbmanager/listener/PlayerCommandPreProcessListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/seliba/sbmanager/guis/SchematicGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/seliba/sbmanager/guis/SchematicGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/seliba/sbmanager/listener/AsyncPlayerChatListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/seliba/sbmanager/listener/AsyncPlayerChatListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/seliba/sbmanager/listener/InventoryClickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/seliba/sbmanager/listener/InventoryClickListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/seliba/sbmanager/schematics/SchematicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/seliba/sbmanager/schematics/SchematicManager.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -31,8 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/listener/AsyncPlayerChatListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-403">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="425">
+              <caret line="38" column="52" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -40,11 +33,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/listener/ServerSwitchListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#479#480#0" expanded="true" />
+                <element signature="e#523#524#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/listener/InventoryClickListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="114" column="34" selection-start-line="114" selection-start-column="34" selection-end-line="114" selection-end-column="34" />
+            <state relative-caret-position="522">
+              <caret line="129" column="47" selection-start-line="129" selection-start-column="47" selection-end-line="129" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,8 +62,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/schematics/SchematicManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+            <state relative-caret-position="376">
+              <caret line="48" column="112" selection-start-line="48" selection-start-column="112" selection-end-line="48" selection-end-column="112" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/guis/SchematicGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="491">
+              <caret line="36" column="90" selection-start-line="36" selection-start-column="90" selection-end-line="36" selection-end-column="90" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -72,6 +91,12 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>reload</find>
+      <find>rl</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -107,14 +132,14 @@
         <option value="$PROJECT_DIR$/src/net/seliba/sbmanager/commands/SManagerCommand.java" />
         <option value="$PROJECT_DIR$/src/net/seliba/sbmanager/SBManager.java" />
         <option value="$PROJECT_DIR$/src/net/seliba/sbmanager/listener/PlayerCommandPreProcessListener.java" />
-        <option value="$PROJECT_DIR$/src/net/seliba/sbmanager/guis/SchematicGUI.java" />
         <option value="$PROJECT_DIR$/src/net/seliba/sbmanager/utils/Config.java" />
         <option value="$PROJECT_DIR$/src/net/seliba/sbmanager/config/Config.java" />
         <option value="$PROJECT_DIR$/src/net/seliba/sbmanager/guis/BrushGUI.java" />
         <option value="$PROJECT_DIR$/src/net/seliba/sbmanager/schematics/AnswerManager.java" />
+        <option value="$PROJECT_DIR$/src/net/seliba/sbmanager/listener/InventoryClickListener.java" />
         <option value="$PROJECT_DIR$/src/net/seliba/sbmanager/listener/AsyncPlayerChatListener.java" />
         <option value="$PROJECT_DIR$/src/net/seliba/sbmanager/schematics/SchematicManager.java" />
-        <option value="$PROJECT_DIR$/src/net/seliba/sbmanager/listener/InventoryClickListener.java" />
+        <option value="$PROJECT_DIR$/src/net/seliba/sbmanager/guis/SchematicGUI.java" />
       </list>
     </option>
   </component>
@@ -217,7 +242,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548001998491" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548009818230" />
     <property name="last_opened_file_path" value="A:/Programme/mcss/servers/1.13.2/plugins" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -292,7 +317,8 @@
       <workItem from="1547826745677" duration="1550000" />
       <workItem from="1547828336418" duration="2258000" />
       <workItem from="1547834500645" duration="2639000" />
-      <workItem from="1547980301713" duration="5620000" />
+      <workItem from="1547980301713" duration="9329000" />
+      <workItem from="1548068555602" duration="2205000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1547059550460</created>
@@ -350,11 +376,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547987319815</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Small bugfix and changed PlayerChatEvent to AsyncPlayerChatEvent again">
+      <created>1548002049779</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1548002049779</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90898000" />
+    <option name="totallyTimeSpent" value="96812000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -369,7 +402,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18336888" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -387,8 +420,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49946696" weight="0.32998884" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" weight="0.32998884" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.49946696" visible="true" weight="0.32998884" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" weight="0.32998884" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.4989339" visible="true" weight="0.32998884" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -413,7 +446,8 @@
     <MESSAGE value="Removed unused code" />
     <MESSAGE value="Added brush gui, not implemented yet" />
     <MESSAGE value="Added debug messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added debug messages" />
+    <MESSAGE value="Small bugfix and changed PlayerChatEvent to AsyncPlayerChatEvent again" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small bugfix and changed PlayerChatEvent to AsyncPlayerChatEvent again" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -582,16 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/guis/SchematicGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="24" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/listener/PlayerCommandPreProcessListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -608,18 +632,6 @@
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/listener/ServerSwitchListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#523#524#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -670,20 +682,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/listener/AsyncPlayerChatListener.java">
+    <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/listener/ServerSwitchListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-403">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="299">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#479#480#0" expanded="true" />
+            <element signature="e#523#524#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/schematics/SchematicManager.java">
+    <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/listener/AsyncPlayerChatListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+        <state relative-caret-position="425">
+          <caret line="38" column="52" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -692,8 +706,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/listener/InventoryClickListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="114" column="34" selection-start-line="114" selection-start-column="34" selection-end-line="114" selection-end-column="34" />
+        <state relative-caret-position="522">
+          <caret line="129" column="47" selection-start-line="129" selection-start-column="47" selection-end-line="129" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/schematics/SchematicManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="48" column="112" selection-start-line="48" selection-start-column="112" selection-end-line="48" selection-end-column="112" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/seliba/sbmanager/guis/SchematicGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="36" column="90" selection-start-line="36" selection-start-column="90" selection-end-line="36" selection-end-column="90" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

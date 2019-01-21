@@ -25,18 +25,21 @@ public class AsyncPlayerChatListener implements Listener {
 
     switch(AnswerManager.getRequestType(player)) {
       case CREATION_CUSTOM_NAME:
+        event.setCancelled(true);
         System.out.println("1");
         AnswerManager.removeRequest(player);
         SchematicDataManager.addSchematicName(player, event.getMessage());
         SchematicManager.createCustomSchematic(player);
         break;
       case CREATION_WEB_NAME:
+        event.setCancelled(true);
         System.out.println("2");
         AnswerManager.removeRequest(player);
         SchematicDataManager.addSchematicName(player, event.getMessage());
         SchematicManager.createWebSchematic(player);
         break;
       case CREATION_WEB_WEBSITE:
+        event.setCancelled(true);
         System.out.println("3");
         AnswerManager.removeRequest(player);
         SchematicDataManager.addSchematicUrl(player, event.getMessage());

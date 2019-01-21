@@ -21,19 +21,22 @@ public class SchematicManager {
   public static void createWebSchematic(Player player) {
     if (!SchematicDataManager.hasSchematicName(player) || !SchematicDataManager
         .hasSchematicUrl(player)) {
+      System.out.println(11);
       return;
     }
     downloadSchematic(player, SchematicDataManager.getSchematicUrl(player),
         SchematicDataManager.getSchematicName(player));
     SchematicDataManager.removeSchematicName(player);
     SchematicDataManager.removeSchematicUrl(player);
+    System.out.println(12);
+    player.sendMessage("§aDu hast das Schematic erfolgreich heruntergeladen!");
   }
 
   public static void createCustomSchematic(Player player) {
     if (!SchematicDataManager.hasSchematicName(player)) {
       return;
     }
-    Bukkit.getScheduler().runTaskAsynchronously(SBManager.getProvidingPlugin(SBManager.class),
+    Bukkit.getScheduler().runTask(SBManager.getProvidingPlugin(SBManager.class),
         () -> {
           player.performCommand("/copy");
           player.performCommand("schem save " + SchematicDataManager.getSchematicName(player));
@@ -42,7 +45,8 @@ public class SchematicManager {
   }
 
   private static void downloadSchematic(Player player, String url, String name) {
-    File file = new File("plugins/FastAsyncWorldEdit/schematics/", name);
+    System.out.println(url + " " + name);
+    File file = new File("plugins/FastAsyncWorldEdit/schematics/" + player.getUniqueId().toString() + "/", name + (url.endsWith(".schem") ? ".schem" : ".schematic"));
     if (file.exists()) {
       return;
     }
