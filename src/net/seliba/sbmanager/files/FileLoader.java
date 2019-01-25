@@ -4,11 +4,10 @@ package net.seliba.sbmanager.files;
 SchematicBrushManager created by Seliba
 */
 
-import org.apache.commons.io.FileUtils;
-import org.bukkit.entity.Player;
-
 import java.io.File;
 import java.io.IOException;
+import org.apache.commons.io.FileUtils;
+import org.bukkit.entity.Player;
 
 public class FileLoader {
 

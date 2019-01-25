@@ -46,7 +46,9 @@ public class SchematicManager {
 
   private static void downloadSchematic(Player player, String url, String name) {
     System.out.println(url + " " + name);
-    File file = new File("plugins/FastAsyncWorldEdit/schematics/" + player.getUniqueId().toString() + "/", name + (url.endsWith(".schem") ? ".schem" : ".schematic"));
+    File file = new File(
+        "plugins/FastAsyncWorldEdit/schematics/" + player.getUniqueId().toString() + "/",
+        name + (url.endsWith(".schem") ? ".schem" : ".schematic"));
     if (file.exists()) {
       return;
     }

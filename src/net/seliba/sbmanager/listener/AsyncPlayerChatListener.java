@@ -19,11 +19,11 @@ public class AsyncPlayerChatListener implements Listener {
   public void onChat(AsyncPlayerChatEvent event) {
     Player player = event.getPlayer();
 
-    if(!AnswerManager.hasRequest(player)) {
+    if (!AnswerManager.hasRequest(player)) {
       return;
     }
 
-    switch(AnswerManager.getRequestType(player)) {
+    switch (AnswerManager.getRequestType(player)) {
       case CREATION_CUSTOM_NAME:
         event.setCancelled(true);
         System.out.println("1");

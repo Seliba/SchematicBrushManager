@@ -1,4 +1,4 @@
-package net.seliba.sbmanager.guis;
+package net.seliba.sbmanager.guis.brushes;
 
 /*
 SchematicBrushManager created by Seliba
@@ -27,7 +27,7 @@ public class BrushGUI {
     for (int i = 0; i < playerBrushData.getStringList("brushes-list").size(); i++) {
       String name = playerBrushData.getString("brushes." + i + ".name");
       Material material = Material.valueOf(playerBrushData.getString("brushes." + i + ".material"));
-      String[] lore = new String[] {
+      String[] lore = new String[]{
           "§6Command: §a" + playerBrushData.getString("brushes." + i + ".command"),
           "§6Verwende den Brush mit Linksklick",
           "§6Verwalte den Brush mit Rechtsklick"
