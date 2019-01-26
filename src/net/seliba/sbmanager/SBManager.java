@@ -42,7 +42,7 @@ public class SBManager extends JavaPlugin {
     PluginManager pluginManager = Bukkit.getPluginManager();
 
     pluginManager.registerEvents(new ServerSwitchListener(fileLoader), this);
-    pluginManager.registerEvents(new InventoryClickListener(), this);
+    pluginManager.registerEvents(new InventoryClickListener(fileLoader), this);
     pluginManager.registerEvents(new AsyncPlayerChatListener(), this);
   }
 

@@ -4,16 +4,16 @@ package net.seliba.sbmanager.listener;
 SchematicBrushManager created by Seliba
 */
 
-import java.io.File;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.seliba.sbmanager.files.FileLoader;
 import net.seliba.sbmanager.guis.schematics.ConfirmationGUI;
 import net.seliba.sbmanager.guis.schematics.SchematicManagerGUI;
 import net.seliba.sbmanager.guis.schematics.SendGUI;
-import net.seliba.sbmanager.schematics.AnswerManager;
-import net.seliba.sbmanager.schematics.AnswerManager.AnswerType;
+import net.seliba.sbmanager.utils.AnswerManager;
+import net.seliba.sbmanager.utils.AnswerManager.AnswerType;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -22,6 +22,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class InventoryClickListener implements Listener {
+
+  private FileLoader fileLoader;
+
+  public InventoryClickListener(FileLoader fileLoader) {
+    this.fileLoader = fileLoader;
+  }
 
   @EventHandler
   public void onInventoryClick(InventoryClickEvent event) {
@@ -33,7 +39,7 @@ public class InventoryClickListener implements Listener {
       event.setCancelled(true);
       String schematicName = event.getCurrentItem().getItemMeta().getDisplayName()
           .replaceAll("§a", "");
-      if (isSchem(player, schematicName)) {
+      if (fileLoader.isSchem(player, schematicName)) {
         schematicName = schematicName + ".schem";
       } else {
         schematicName = schematicName + ".schematic";
@@ -50,7 +56,8 @@ public class InventoryClickListener implements Listener {
       }
     } else if (event.getClickedInventory().getName().endsWith(" §7| §aVerwaltung")) {
       event.setCancelled(true);
-      String schematicName = getSchematicName(event.getClickedInventory().getName(), player);
+      String schematicName = fileLoader
+          .getSchematicName(event.getClickedInventory().getName(), player);
       if (player.hasPermission("sbmanager.schematics")) {
         if (event.getCurrentItem().getType() == Material.ARROW) {
           SendGUI.open(player, schematicName.replaceAll(".schematic", "").replaceAll(".schem", ""));
@@ -61,12 +68,13 @@ public class InventoryClickListener implements Listener {
       }
     } else if (event.getClickedInventory().getName().endsWith("§7| §aBestätigung")) {
       event.setCancelled(true);
-      String schematicName = getSchematicName(event.getClickedInventory().getName(), player);
+      String schematicName = fileLoader
+          .getSchematicName(event.getClickedInventory().getName(), player);
       if (player.hasPermission("sbmanager.schematics")) {
         if (event.getCurrentItem().getType() == Material.EMERALD_BLOCK) {
           player.closeInventory();
           player.sendMessage("§aDu hast das Schematic erfolgreich gelöscht!");
-          deleteFiles(schematicName, player);
+          fileLoader.deleteFiles(schematicName, player);
         } else if (event.getCurrentItem().getType() == Material.REDSTONE_BLOCK) {
           player.closeInventory();
           player.sendMessage("§aDu hast den Vorgang erfolgreich abgebrochen!");
@@ -74,7 +82,8 @@ public class InventoryClickListener implements Listener {
       }
     } else if (event.getClickedInventory().getName().endsWith(" §7| §aSenden")) {
       event.setCancelled(true);
-      String schematicName = getSchematicName(event.getClickedInventory().getName(), player);
+      String schematicName = fileLoader
+          .getSchematicName(event.getClickedInventory().getName(), player);
       if (player.hasPermission("sbmanager.schematics")) {
         if (event.getCurrentItem().getType() != Material.PLAYER_HEAD) {
           return;
@@ -109,45 +118,21 @@ public class InventoryClickListener implements Listener {
       if (player.hasPermission("sbmanager.schematics")) {
         if (event.getCurrentItem().getType() == Material.PAPER) {
           player.closeInventory();
-          AnswerManager.addRequest(player, AnswerType.CREATION_WEB_WEBSITE);
+          AnswerManager.addRequest(player, AnswerType.SCHEMATIC_WEB_WEBSITE);
           player.sendMessage("§aBitte gebe die URL zu der Webseite ein!");
         } else if (event.getCurrentItem().getType() == Material.WOODEN_AXE) {
           player.closeInventory();
-          AnswerManager.addRequest(player, AnswerType.CREATION_CUSTOM_NAME);
+          AnswerManager.addRequest(player, AnswerType.SCHEMATIC_CUSTOM_NAME);
           player.sendMessage("§aBitte gebe den Namen des Schematics ein!");
         }
       }
-    }
-  }
+    } else if (event.getClickedInventory().getName().equals("§aBrushes §7| §aErstellung")) {
+      event.setCancelled(true);
+      if (player.hasPermission("sbmanager.brushes")) {
+        if (event.getSlot() == 13) {
 
-  private boolean isSchem(Player player, String name) {
-    File file = new File(
-        "plugins/FastAsyncWorldEdit/schematics/" + player.getUniqueId().toString() + "/" + name
-            + ".schem");
-    return file.exists();
-  }
-
-  private String getSchematicName(String name, Player player) {
-    String schematicName = name.replaceAll("§a", "").split(" ")[0];
-    if (isSchem(player, schematicName)) {
-      schematicName = schematicName + ".schem";
-    } else {
-      schematicName = schematicName + ".schematic";
-    }
-    return schematicName;
-  }
-
-  private void deleteFiles(String schematicName, Player player) {
-    File localFile = new File(
-        "plugins/FastAsyncWorldEdit/schematics/" + player.getUniqueId().toString() + "/"
-            + schematicName);
-    File publicFile = new File(
-        "../SBManager/schematics/" + player.getUniqueId().toString() + "/" + schematicName);
-    if (localFile.exists()) {
-      localFile.delete();
-    }
-    if (publicFile.exists()) {
-      publicFile.delete();
+        }
+      }
     }
   }
 

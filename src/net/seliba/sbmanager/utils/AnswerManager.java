@@ -1,4 +1,4 @@
-package net.seliba.sbmanager.schematics;
+package net.seliba.sbmanager.utils;
 
 /*
 SchematicBrushManager created by Seliba
@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 public class AnswerManager {
 
   public enum AnswerType {
-    CREATION_WEB_WEBSITE, CREATION_WEB_NAME, CREATION_CUSTOM_NAME;
+    SCHEMATIC_WEB_WEBSITE, SCHEMATIC_WEB_NAME, SCHEMATIC_CUSTOM_NAME, BRUSH_NAME;
   }
 
   private static HashMap<Player, AnswerType> requestedAnswers = new HashMap<>();

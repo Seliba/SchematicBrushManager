@@ -32,4 +32,35 @@ public class FileLoader {
         }
     }
 
+    public boolean isSchem(Player player, String name) {
+        File file = new File(
+            "plugins/FastAsyncWorldEdit/schematics/" + player.getUniqueId().toString() + "/" + name
+                + ".schem");
+        return file.exists();
+    }
+
+    public String getSchematicName(String name, Player player) {
+        String schematicName = name.replaceAll("§a", "").split(" ")[0];
+        if (isSchem(player, schematicName)) {
+            schematicName = schematicName + ".schem";
+        } else {
+            schematicName = schematicName + ".schematic";
+        }
+        return schematicName;
+    }
+
+    public void deleteFiles(String schematicName, Player player) {
+        File localFile = new File(
+            "plugins/FastAsyncWorldEdit/schematics/" + player.getUniqueId().toString() + "/"
+                + schematicName);
+        File publicFile = new File(
+            "../SBManager/schematics/" + player.getUniqueId().toString() + "/" + schematicName);
+        if (localFile.exists()) {
+            localFile.delete();
+        }
+        if (publicFile.exists()) {
+            publicFile.delete();
+        }
+    }
+
 }
