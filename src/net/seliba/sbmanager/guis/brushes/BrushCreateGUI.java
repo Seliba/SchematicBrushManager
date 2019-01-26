@@ -4,6 +4,7 @@ package net.seliba.sbmanager.guis.brushes;
 SchematicBrushManager created by Seliba
 */
 
+import java.util.ArrayList;
 import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -25,6 +26,9 @@ public class BrushCreateGUI {
     ItemMeta schematicItemMeta = schematicItem.getItemMeta();
 
     List<String> lore = schematicItemMeta.getLore();
+    if (lore == null) {
+      lore = new ArrayList<>();
+    }
     lore.add(" ");
     lore.add("§aErstelle einen neuen Brush!");
     schematicItemMeta.setLore(lore);

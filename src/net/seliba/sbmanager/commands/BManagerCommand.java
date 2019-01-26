@@ -6,6 +6,7 @@ SchematicBrushManager created by Seliba
 
 import net.seliba.sbmanager.guis.brushes.BrushCreateGUI;
 import net.seliba.sbmanager.guis.brushes.BrushGUI;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,6 +24,10 @@ public class BManagerCommand implements CommandExecutor {
           return true;
         }
         if (args[0].equalsIgnoreCase("create")) {
+          if(player.getInventory().getItemInMainHand().getType() == Material.AIR) {
+            player.sendMessage("§cBitte halte ein Item in der Hand!");
+            return true;
+          }
           BrushCreateGUI.open(player);
           return true;
         }

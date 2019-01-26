@@ -9,7 +9,6 @@ import net.seliba.sbmanager.commands.SManagerCommand;
 import net.seliba.sbmanager.files.FileLoader;
 import net.seliba.sbmanager.listener.AsyncPlayerChatListener;
 import net.seliba.sbmanager.listener.InventoryClickListener;
-import net.seliba.sbmanager.listener.PlayerCommandPreProcessListener;
 import net.seliba.sbmanager.listener.ServerSwitchListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
@@ -44,7 +43,6 @@ public class SBManager extends JavaPlugin {
 
     pluginManager.registerEvents(new ServerSwitchListener(fileLoader), this);
     pluginManager.registerEvents(new InventoryClickListener(), this);
-    pluginManager.registerEvents(new PlayerCommandPreProcessListener(), this);
     pluginManager.registerEvents(new AsyncPlayerChatListener(), this);
   }
 
