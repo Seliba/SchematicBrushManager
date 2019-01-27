@@ -47,6 +47,7 @@ public class AsyncPlayerChatListener implements Listener {
         break;
       case BRUSH_NAME:
         event.setCancelled(true);
+        AnswerManager.removeRequest(player);
         BrushDataManager.setBrushName(player, event.getMessage());
         BrushManager.createBrush(player);
         break;

@@ -30,7 +30,7 @@ public class DataFile extends YamlConfiguration {
   }
 
   public void reload() {
-    file = new File("../SBManager/brushes", uuid + ".yml");
+    file = new File("../SBManager/brushes.yml");
 
     try {
       if (!file.exists()) {

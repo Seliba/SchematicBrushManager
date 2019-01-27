@@ -14,6 +14,9 @@ public class BrushManager {
     String brushName = BrushDataManager.getBrushName(player);
 
     //TODO
+
+    BrushDataManager.removeBrushItem(player);
+    BrushDataManager.removeBrushName(player);
   }
 
 }
