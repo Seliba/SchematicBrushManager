@@ -5,7 +5,7 @@ SchematicBrushManager created by Seliba
 */
 
 import net.seliba.sbmanager.SBManager;
-import net.seliba.sbmanager.files.DataFile;
+import net.seliba.sbmanager.files.BrushFile;
 import net.seliba.sbmanager.utils.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -22,13 +22,13 @@ public class BrushGUI {
     Inventory inventory = Bukkit.createInventory(null, INVENTORY_SIZE, "§aBrushes");
 
     String uuid = player.getUniqueId().toString();
-    DataFile playerBrushData = new DataFile(uuid, SBManager.getProvidingPlugin(SBManager.class));
+    BrushFile playerBrushData = new BrushFile();
 
-    for (int i = 0; i < playerBrushData.getStringList("brushes-list").size(); i++) {
-      String name = playerBrushData.getString("brushes." + i + ".name");
-      Material material = Material.valueOf(playerBrushData.getString("brushes." + i + ".material"));
-      String[] lore = new String[]{
-          "§6Command: §a" + playerBrushData.getString("brushes." + i + ".command"),
+    for (int i = 0; i < playerBrushData.getStringList(uuid + ".brushes-list").size(); i++) {
+      String name = playerBrushData.getString(uuid + "." + i + ".name");
+      Material material = Material.valueOf(playerBrushData.getString(uuid + ".brushes." + i + ".material"));
+      String[] lore = new String[] {
+          "§6Command: §a" + playerBrushData.getString(uuid + ".brushes." + i + ".command"),
           "§6Verwende den Brush mit Linksklick",
           "§6Verwalte den Brush mit Rechtsklick"
       };

@@ -13,19 +13,12 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.plugin.java.JavaPlugin;
 
-public class DataFile extends YamlConfiguration {
-
-  private String uuid;
-  private JavaPlugin javaPlugin;
+public class BrushFile extends YamlConfiguration {
 
   private File file;
 
-  public DataFile(String uuid, JavaPlugin javaPlugin) {
-    this.uuid = uuid;
-    this.javaPlugin = javaPlugin;
-
+  public BrushFile() {
     reload();
   }
 
@@ -35,7 +28,7 @@ public class DataFile extends YamlConfiguration {
     try {
       if (!file.exists()) {
         if (!file.createNewFile()) {
-          throw new RuntimeException("Could not create DataFile " + uuid + ".yml");
+          throw new RuntimeException("Could not create BrushFile brushes.yml");
         }
       }
 
