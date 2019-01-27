@@ -8,8 +8,6 @@ import java.util.HashMap;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-//TODO
-
 public class BrushDataManager {
 
   private static HashMap<Player, ItemStack> brushItems = new HashMap<>();
