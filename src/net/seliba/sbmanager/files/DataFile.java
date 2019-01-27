@@ -1,4 +1,4 @@
-package net.seliba.sbmanager.config;
+package net.seliba.sbmanager.files;
 
 /*
 SchematicBrushManager created by Seliba
@@ -15,14 +15,14 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Config extends YamlConfiguration {
+public class DataFile extends YamlConfiguration {
 
   private String uuid;
   private JavaPlugin javaPlugin;
 
   private File file;
 
-  public Config(String uuid, JavaPlugin javaPlugin) {
+  public DataFile(String uuid, JavaPlugin javaPlugin) {
     this.uuid = uuid;
     this.javaPlugin = javaPlugin;
 
@@ -35,7 +35,7 @@ public class Config extends YamlConfiguration {
     try {
       if (!file.exists()) {
         if (!file.createNewFile()) {
-          throw new RuntimeException("Could not create Config " + uuid + ".yml");
+          throw new RuntimeException("Could not create DataFile " + uuid + ".yml");
         }
       }
 

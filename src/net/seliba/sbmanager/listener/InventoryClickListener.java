@@ -8,6 +8,7 @@ import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.seliba.sbmanager.brushes.BrushDataManager;
 import net.seliba.sbmanager.files.FileLoader;
 import net.seliba.sbmanager.guis.schematics.ConfirmationGUI;
 import net.seliba.sbmanager.guis.schematics.SchematicManagerGUI;
@@ -130,7 +131,10 @@ public class InventoryClickListener implements Listener {
       event.setCancelled(true);
       if (player.hasPermission("sbmanager.brushes")) {
         if (event.getSlot() == 13) {
-
+          player.closeInventory();
+          BrushDataManager.setBrushItem(player, event.getCurrentItem());
+          AnswerManager.addRequest(player, AnswerType.BRUSH_NAME);
+          player.sendMessage("§aBitte gebe den Namen des Brushes ein!");
         }
       }
     }

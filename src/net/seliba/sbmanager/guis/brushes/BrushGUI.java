@@ -5,7 +5,7 @@ SchematicBrushManager created by Seliba
 */
 
 import net.seliba.sbmanager.SBManager;
-import net.seliba.sbmanager.config.Config;
+import net.seliba.sbmanager.files.DataFile;
 import net.seliba.sbmanager.utils.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -22,7 +22,7 @@ public class BrushGUI {
     Inventory inventory = Bukkit.createInventory(null, INVENTORY_SIZE, "§aBrushes");
 
     String uuid = player.getUniqueId().toString();
-    Config playerBrushData = new Config(uuid, SBManager.getProvidingPlugin(SBManager.class));
+    DataFile playerBrushData = new DataFile(uuid, SBManager.getProvidingPlugin(SBManager.class));
 
     for (int i = 0; i < playerBrushData.getStringList("brushes-list").size(); i++) {
       String name = playerBrushData.getString("brushes." + i + ".name");
