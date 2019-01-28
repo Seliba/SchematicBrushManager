@@ -6,6 +6,7 @@ SchematicBrushManager created by Seliba
 
 import net.seliba.sbmanager.commands.BManagerCommand;
 import net.seliba.sbmanager.commands.SManagerCommand;
+import net.seliba.sbmanager.files.BrushFile;
 import net.seliba.sbmanager.files.FileLoader;
 import net.seliba.sbmanager.listener.AsyncPlayerChatListener;
 import net.seliba.sbmanager.listener.InventoryClickListener;
@@ -17,12 +18,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class SBManager extends JavaPlugin {
 
   private FileLoader fileLoader;
+  private static BrushFile brushFile;
 
   @Override
   public void onEnable() {
     System.out.println("[SchematicBrushManager] Gestartet!");
 
     fileLoader = new FileLoader();
+    brushFile = new BrushFile();
 
     registerCommands();
     registerEvents();
@@ -44,6 +47,10 @@ public class SBManager extends JavaPlugin {
     pluginManager.registerEvents(new ServerSwitchListener(fileLoader), this);
     pluginManager.registerEvents(new InventoryClickListener(fileLoader), this);
     pluginManager.registerEvents(new AsyncPlayerChatListener(), this);
+  }
+
+  public static BrushFile getBrushFile() {
+    return brushFile;
   }
 
 }
