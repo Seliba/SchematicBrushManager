@@ -22,7 +22,7 @@ public class BrushCreateGUI {
     Inventory inventory = Bukkit
         .createInventory(null, INVENTORY_SIZE, "§aBrushes §7| §aErstellung");
 
-    ItemStack schematicItem = player.getInventory().getItemInMainHand();
+    ItemStack schematicItem = new ItemStack(player.getInventory().getItemInMainHand());
     ItemMeta schematicItemMeta = schematicItem.getItemMeta();
 
     List<String> lore = schematicItemMeta.getLore();

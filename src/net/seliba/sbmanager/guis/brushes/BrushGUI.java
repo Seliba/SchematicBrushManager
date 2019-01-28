@@ -22,14 +22,14 @@ public class BrushGUI {
     Inventory inventory = Bukkit.createInventory(null, INVENTORY_SIZE, "§aBrushes");
 
     String uuid = player.getUniqueId().toString();
-    //BrushFile playerBrushData = new BrushFile();
     BrushFile brushData = SBManager.getBrushFile();
 
     for (int i = 0; i < brushData.getStringList(uuid + ".brushes-list").size(); i++) {
-      String name = brushData.getString(uuid + "." + i + ".name");
+      String name = "§a" + brushData.getString(uuid + ".brushes." + i + ".name");
       Material material = Material.valueOf(brushData.getString(uuid + ".brushes." + i + ".material"));
       String[] lore = new String[] {
-          "§6Command: §a" + brushData.getString(uuid + ".brushes." + i + ".command"),
+          "§6Command: §a/br " + brushData.getString(uuid + ".brushes." + i + ".command"),
+          " ",
           "§6Verwende den Brush mit Linksklick",
           "§6Verwalte den Brush mit Rechtsklick"
       };

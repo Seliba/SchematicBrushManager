@@ -4,23 +4,29 @@ package net.seliba.sbmanager.listener;
 SchematicBrushManager created by Seliba
 */
 
+import java.util.Arrays;
+import java.util.List;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.seliba.sbmanager.SBManager;
 import net.seliba.sbmanager.brushes.BrushDataManager;
+import net.seliba.sbmanager.files.BrushFile;
 import net.seliba.sbmanager.files.FileLoader;
 import net.seliba.sbmanager.guis.schematics.ConfirmationGUI;
 import net.seliba.sbmanager.guis.schematics.SchematicManagerGUI;
 import net.seliba.sbmanager.guis.schematics.SendGUI;
 import net.seliba.sbmanager.utils.AnswerManager;
 import net.seliba.sbmanager.utils.AnswerManager.AnswerType;
+import net.seliba.sbmanager.utils.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class InventoryClickListener implements Listener {
 
@@ -136,6 +142,35 @@ public class InventoryClickListener implements Listener {
           AnswerManager.addRequest(player, AnswerType.BRUSH_NAME);
           player.sendMessage("§aBitte gebe den Namen des Brushes ein!");
         }
+      }
+    } else if (event.getClickedInventory().getName().equals("§aBrushes")) {
+      event.setCancelled(true);
+      if (player.hasPermission("sbmanager.brushes")) {
+        String brushName = event.getCurrentItem().getItemMeta().getDisplayName()
+            .replaceAll("§a", "");
+        if (player.getInventory().firstEmpty() == -1) {
+          player.closeInventory();
+          player.sendMessage("§aDein Inventar ist voll! Bitte mache Platz!");
+          return;
+        }
+
+        BrushFile brushFile = SBManager.getBrushFile();
+        String uuid = player.getUniqueId().toString();
+        List<String> playerBrushes = brushFile.getStringList(uuid + ".brushes-list");
+        int itemCount = playerBrushes.indexOf(brushName);
+        Material brushMaterial = event.getCurrentItem().getType();
+        String brushCommand = brushFile.getString(uuid + ".brushes." + itemCount + ".command");
+        String brushItemName = brushCommand.split(" ")[1];
+
+        player.closeInventory();
+        ItemStack itemInHand = player.getInventory().getItemInMainHand();
+        if(itemInHand.getType() != Material.AIR) {
+          player.getInventory().setItem(player.getInventory().firstEmpty(), itemInHand);
+        }
+        player.getInventory().setItemInMainHand(new ItemBuilder(brushMaterial).setName(brushItemName).build());
+        player.sendMessage(brushCommand);
+        player.performCommand("br " + brushCommand);
+        player.sendMessage("§aDu hast nun das Brush-Item im Inventar!");
       }
     }
   }

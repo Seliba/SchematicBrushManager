@@ -28,6 +28,10 @@ public class BManagerCommand implements CommandExecutor {
             player.sendMessage("§cBitte halte ein Item in der Hand!");
             return true;
           }
+          if(!player.getInventory().getItemInMainHand().getItemMeta().hasLore() || !player.getInventory().getItemInMainHand().getItemMeta().getLore().get(0).startsWith("{")) {
+            player.sendMessage("§cBitte wähle ein Brush-Item!");
+            return true;
+          }
           BrushCreateGUI.open(player);
           return true;
         }
