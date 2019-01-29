@@ -11,10 +11,10 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
-public class SendGUI {
+public class SchematicSendGUI {
 
     public static void open(Player player, String schematicName) {
-        Inventory inventory = Bukkit.createInventory(null, getInventorySize(), "§a" + schematicName + " §7| §aSenden");
+        Inventory inventory = Bukkit.createInventory(null, getInventorySize(), "§a" + schematicName + " §7| §aSchematics senden");
 
         for(Player onlinePlayer : Bukkit.getServer().getOnlinePlayers()) {
             ItemStack skullItem = new ItemStack(Material.PLAYER_HEAD);

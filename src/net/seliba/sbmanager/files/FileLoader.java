@@ -6,6 +6,8 @@ SchematicBrushManager created by Seliba
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
+import net.seliba.sbmanager.SBManager;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.entity.Player;
 
@@ -61,6 +63,25 @@ public class FileLoader {
         if (publicFile.exists()) {
             publicFile.delete();
         }
+    }
+
+    public void deleteBrush(String uuid, String brushName) {
+        BrushFile brushFile = SBManager.getBrushFile();
+        int brushId = brushFile.getStringList(uuid + ".brushes-list").indexOf(brushName);
+        List<String> playerBrushes = brushFile.getStringList(uuid + ".brushes-list");
+
+        for (int i = brushId; i < playerBrushes.size(); i++) {
+            System.out.println(i);
+            System.out.println(brushId);
+            System.out.println(brushFile.getString(uuid + ".brushes." + (i + 1) + ".name"));
+            brushFile.set(uuid + ".brushes." + i + ".name", brushFile.getString(uuid + ".brushes." + (i + 1) + ".name"));
+            brushFile.set(uuid + ".brushes." + i + ".command", brushFile.getString(uuid + ".brushes." + (i + 1) + ".command"));
+            brushFile.set(uuid + ".brushes." + i + ".material", brushFile.getString(uuid + ".brushes." + (i + 1) + ".material"));
+        }
+
+        playerBrushes.remove(brushName);
+        brushFile.set(uuid + ".brushes-list", playerBrushes);
+        brushFile.save();
     }
 
 }

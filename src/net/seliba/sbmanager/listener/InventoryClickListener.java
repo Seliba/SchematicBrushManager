@@ -4,7 +4,6 @@ package net.seliba.sbmanager.listener;
 SchematicBrushManager created by Seliba
 */
 
-import java.util.Arrays;
 import java.util.List;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -14,9 +13,12 @@ import net.seliba.sbmanager.SBManager;
 import net.seliba.sbmanager.brushes.BrushDataManager;
 import net.seliba.sbmanager.files.BrushFile;
 import net.seliba.sbmanager.files.FileLoader;
-import net.seliba.sbmanager.guis.schematics.ConfirmationGUI;
+import net.seliba.sbmanager.guis.brushes.BrushConfirmationGUI;
+import net.seliba.sbmanager.guis.brushes.BrushManagerGUI;
+import net.seliba.sbmanager.guis.brushes.BrushSendGUI;
+import net.seliba.sbmanager.guis.schematics.SchematicConfirmationGUI;
 import net.seliba.sbmanager.guis.schematics.SchematicManagerGUI;
-import net.seliba.sbmanager.guis.schematics.SendGUI;
+import net.seliba.sbmanager.guis.schematics.SchematicSendGUI;
 import net.seliba.sbmanager.utils.AnswerManager;
 import net.seliba.sbmanager.utils.AnswerManager.AnswerType;
 import net.seliba.sbmanager.utils.ItemBuilder;
@@ -25,6 +27,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -61,19 +64,20 @@ public class InventoryClickListener implements Listener {
               .open(player, schematicName.replaceAll(".schematic", "").replaceAll(".schem", ""));
         }
       }
-    } else if (event.getClickedInventory().getName().endsWith(" §7| §aVerwaltung")) {
+    } else if (event.getClickedInventory().getName().endsWith(" §7| §aSchematic-Verwaltung")) {
       event.setCancelled(true);
       String schematicName = fileLoader
           .getSchematicName(event.getClickedInventory().getName(), player);
       if (player.hasPermission("sbmanager.schematics")) {
         if (event.getCurrentItem().getType() == Material.ARROW) {
-          SendGUI.open(player, schematicName.replaceAll(".schematic", "").replaceAll(".schem", ""));
+          SchematicSendGUI
+              .open(player, schematicName.replaceAll(".schematic", "").replaceAll(".schem", ""));
         } else if (event.getCurrentItem().getType() == Material.REDSTONE_BLOCK) {
-          ConfirmationGUI
+          SchematicConfirmationGUI
               .open(player, schematicName.replaceAll(".schematic", "").replaceAll(".schem", ""));
         }
       }
-    } else if (event.getClickedInventory().getName().endsWith("§7| §aBestätigung")) {
+    } else if (event.getClickedInventory().getName().endsWith("§7| §aSchematic Bestätigung")) {
       event.setCancelled(true);
       String schematicName = fileLoader
           .getSchematicName(event.getClickedInventory().getName(), player);
@@ -87,7 +91,7 @@ public class InventoryClickListener implements Listener {
           player.sendMessage("§aDu hast den Vorgang erfolgreich abgebrochen!");
         }
       }
-    } else if (event.getClickedInventory().getName().endsWith(" §7| §aSenden")) {
+    } else if (event.getClickedInventory().getName().endsWith(" §7| §aSchematics senden")) {
       event.setCancelled(true);
       String schematicName = fileLoader
           .getSchematicName(event.getClickedInventory().getName(), player);
@@ -108,7 +112,7 @@ public class InventoryClickListener implements Listener {
         message.setText("§6" + player.getName() + " §amöchte dir das Schematic §6" + schematicName
             .replaceAll(".schematic", "").replaceAll(".schem", "") + " §aschicken!");
         accept.setText("§a§lKlicke hier zum Annehmen!");
-        warning.setText("§c§lAchtung, dieser Vorgang überschreibt andere Dateien mit dem Namen!");
+        warning.setText("§c§lAchtung, dieser Vorgang überschreibt andere §c§lDateien mit dem Namen!");
         accept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,
             "/sm accept " + player.getUniqueId() + " " + schematicName));
         accept.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,
@@ -148,6 +152,10 @@ public class InventoryClickListener implements Listener {
       if (player.hasPermission("sbmanager.brushes")) {
         String brushName = event.getCurrentItem().getItemMeta().getDisplayName()
             .replaceAll("§a", "");
+        if (event.getClick() == ClickType.RIGHT) {
+          BrushManagerGUI.open(player, brushName);
+          return;
+        }
         if (player.getInventory().firstEmpty() == -1) {
           player.closeInventory();
           player.sendMessage("§aDein Inventar ist voll! Bitte mache Platz!");
@@ -164,13 +172,68 @@ public class InventoryClickListener implements Listener {
 
         player.closeInventory();
         ItemStack itemInHand = player.getInventory().getItemInMainHand();
-        if(itemInHand.getType() != Material.AIR) {
+        if (itemInHand.getType() != Material.AIR) {
           player.getInventory().setItem(player.getInventory().firstEmpty(), itemInHand);
         }
-        player.getInventory().setItemInMainHand(new ItemBuilder(brushMaterial).setName(brushItemName).build());
+        player.getInventory()
+            .setItemInMainHand(new ItemBuilder(brushMaterial).setName(brushItemName).build());
         player.sendMessage(brushCommand);
         player.performCommand("br " + brushCommand);
         player.sendMessage("§aDu hast nun das Brush-Item im Inventar!");
+      }
+    } else if (event.getClickedInventory().getName().endsWith(" §7| §aBrush-Verwaltung")) {
+      event.setCancelled(true);
+      String brushName = event.getClickedInventory().getName().split(" ")[0].replaceAll("§a", "");
+      if(player.hasPermission("sbmanager.brushes")) {
+        if (event.getCurrentItem().getType() == Material.ARROW) {
+          BrushSendGUI.open(player, brushName);
+        } else if (event.getCurrentItem().getType() == Material.REDSTONE_BLOCK) {
+          BrushConfirmationGUI.open(player, brushName);
+        }
+      }
+    } else if(event.getClickedInventory().getName().endsWith(" §7| §aBrushes senden")) {
+      event.setCancelled(true);
+      if(player.hasPermission("sbmanager.brushes")) {
+        String brushName = event.getClickedInventory().getName().split(" ")[0].replaceAll("§a", "");
+        if (event.getCurrentItem().getType() != Material.PLAYER_HEAD) {
+          return;
+        }
+        Player receiver = Bukkit
+            .getPlayer(event.getCurrentItem().getItemMeta().getDisplayName().replaceAll("§a", ""));
+        if (receiver == null) {
+          player.closeInventory();
+          player.sendMessage("§cDieser Spieler ist offline!");
+          return;
+        }
+        TextComponent message = new TextComponent();
+        TextComponent accept = new TextComponent();
+        TextComponent warning = new TextComponent();
+        message.setText("§6" + player.getName() + " §amöchte dir den Brush §6" + brushName + " §aschicken!");
+        accept.setText("§a§lKlicke hier zum Annehmen!");
+        warning.setText("§c§lAchtung, dieser Vorgang überschreibt andere §c§lDateien mit dem Namen!");
+        accept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,
+            "/bm accept " + player.getUniqueId() + " " + brushName));
+        accept.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,
+            new ComponentBuilder("§aAnnehmen").create()));
+        receiver.spigot().sendMessage(message);
+        receiver.spigot().sendMessage(accept);
+        receiver.spigot().sendMessage(warning);
+        player.closeInventory();
+        player.sendMessage(
+            "§aDu hast §6" + receiver.getName() + " §aerfolgreich den Brush gesendet!");
+      }
+    } else if(event.getClickedInventory().getName().endsWith(" §7| §aBrush Bestätigung")) {
+      event.setCancelled(true);
+      if(player.hasPermission("sbmanager.brushes")) {
+        String brushName = event.getClickedInventory().getName().split(" ")[0].replaceAll("§a", "");
+        if (event.getCurrentItem().getType() == Material.EMERALD_BLOCK) {
+          player.closeInventory();
+          player.sendMessage("§aDu hast den Brush erfolgreich gelöscht!");
+          fileLoader.deleteBrush(player.getUniqueId().toString(), brushName);
+        } else if (event.getCurrentItem().getType() == Material.REDSTONE_BLOCK) {
+          player.closeInventory();
+          player.sendMessage("§aDu hast den Vorgang erfolgreich abgebrochen!");
+        }
       }
     }
   }
